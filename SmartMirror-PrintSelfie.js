@@ -25,4 +25,13 @@ Module.register('SmartMirror-PrintSelfie',{
 		}
 	},
 
+	//say_message
+
+  // Subclass socketNotificationReceived received.
+  socketNotificationReceived: function(notification, payload) {
+	if(notification === 'say_message') {
+		self.sendNotification("SHOW_ALERT", {type: "notification", message: payload});
+	}
+  }
+
 });
